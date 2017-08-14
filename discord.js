@@ -1,15 +1,14 @@
 const Discord = require("discord.js");
 const owjs = require('overwatch-js');
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 8080;
-
+const express = require('express');
+let app = express();
+let port = process.env.PORT;
 
 app.get('/*', function(req, res){
   res.send('Hello World');
 });
 
-var server = app.listen(port, function(){
+let server = app.listen(port, function(){
   console.log('Basic server is listening on port ' + port);
 });
 
