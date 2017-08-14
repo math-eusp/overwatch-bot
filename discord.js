@@ -47,8 +47,8 @@ client.on("message", async message => {
       message.channel.send({embed: {
           color: 3447003,
           author: {
-            name: `${args[0]} - Lvl: ${data.profile.tier}${data.profile.level}`,
-            icon_url: data.profile.rankPicture
+            name: `${args[0]} -Lvl: ${data.profile.tier}${data.profile.level}`,
+            icon_url: data.profile.rankPicture ? data.profile.rankPicture : data.profile.avatar
           },
           thumbnail: {
             url: data.profile.avatar
@@ -62,7 +62,7 @@ client.on("message", async message => {
             },
             {
               name: "Skill Rating",
-              value: data.profile.rank
+              value: data.profile.rank ? data.profile.rank : 'Unranked'
             },
             {
               name: "Medals",
