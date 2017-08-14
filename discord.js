@@ -6,7 +6,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 
 client.on("ready", () => {
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.user.setGame(`Memeing on ${client.guilds.size} servers`);
 });
 
@@ -24,19 +24,19 @@ client.on("guildDelete", guild => {
 client.on("message", async message => {
 
   if(message.author.bot) return;
-  
+
   if(message.content.indexOf(config.prefix) !== 0) return;
-  
+
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
+
   if(command === "stats") {
     if(!args[0]){
-      return message.reply("battle-tag must be informed");      
+      return message.reply("battle-tag must be informed");
     }else if(args[0].indexOf('#') == -1){
       return message.reply("battle tag format is incorrect, use *USERNAME#TAG*");
     }
-        
+
     var username = args[0].replace('#','-');
     var region = args[1] ? args[1] : 'us';
     var platform = args[2] ? args[2] : 'pc';
@@ -47,7 +47,7 @@ client.on("message", async message => {
       message.channel.send({embed: {
           color: 3447003,
           author: {
-            name: `${args[0]} -Lvl: ${data.profile.tier}${data.profile.level}`,
+            name: `${args[0]} - Lvl: ${data.profile.tier}${data.profile.level}`,
             icon_url: data.profile.rankPicture ? data.profile.rankPicture : data.profile.avatar
           },
           thumbnail: {
