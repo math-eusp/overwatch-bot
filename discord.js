@@ -21,18 +21,18 @@ client.on("ready", () => {
   client.user.setGame(`Memeing on ${client.guilds.size} servers`);
 });
 
-client.on("guildCreate", guild => {
+client.on("guildCreate", (guild) => {
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   client.user.setGame(`Memeing on ${client.guilds.size} servers`);
 });
 
-client.on("guildDelete", guild => {
+client.on("guildDelete", (guild) => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
   client.user.setGame(`Memeing on ${client.guilds.size} servers`);
 });
 
 
-client.on("message", async message => {
+client.on("message", (async message) => {
 
   if(message.author.bot) return;
 
