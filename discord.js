@@ -32,7 +32,7 @@ client.on("guildDelete", (guild) => {
 });
 
 
-client.on("message", (async message) => {
+client.on("message", (message) => {
 
   if(message.author.bot) return;
 
